@@ -1,5 +1,5 @@
 import * as React from 'react';
-import css from './Button.module.css';
+import * as css from './Button.module.css';
 
 interface ButtonProps {
   buttonType?: 'button' | 'submit' | 'reset';
