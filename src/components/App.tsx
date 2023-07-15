@@ -9,34 +9,8 @@ import {
   countPositiveFeedbackPercentage,
   countTotalFeedback,
 } from './utils/stats';
-
-interface State {
-  good: number;
-  neutral: number;
-  bad: number;
-}
-
-type Action = { type: 'good' | 'neutral' | 'bad'; payload: number };
-
-function reducer(prevState: State, action: Action): State {
-  if (action.type === 'good') {
-    return {
-      ...prevState,
-      good: prevState.good + action.payload,
-    };
-  } else if (action.type === 'neutral') {
-    return {
-      ...prevState,
-      neutral: prevState.neutral + action.payload,
-    };
-  } else if (action.type === 'bad') {
-    return {
-      ...prevState,
-      bad: prevState.bad + action.payload,
-    };
-  }
-  return prevState;
-}
+import { reducer } from './utils/reducer';
+import { TAction } from './utils/reducer';
 
 export const App: React.FC = () => {
   const [state, dispatch] = useReducer(
@@ -52,7 +26,7 @@ export const App: React.FC = () => {
     window.localStorage.setItem('STATS_STATE', JSON.stringify(state));
   }, [state]);
 
-  const incrementStat = (stat: 'good' | 'neutral' | 'bad') => {
+  const incrementStat = (stat: TAction['type']) => {
     dispatch({ type: stat, payload: 1 });
   };
 

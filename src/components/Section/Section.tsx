@@ -1,11 +1,11 @@
 import * as React from 'react';
 
-interface SectionProps {
+interface ISectionProps {
   title: string;
   children: React.ReactNode;
 }
 
-export const Section: React.FC<SectionProps> = ({ title, children }) => {
+export const Section = ({ title, children }: ISectionProps) => {
   return (
     <section>
       <h2>{title}</h2>

@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-interface NotificationProps {
+interface INotificationProps {
   message: string;
 }
 
-export const Notification: React.FC<NotificationProps> = ({ message }) => (
+export const Notification = ({ message }: INotificationProps) => (
   <p>{message}</p>
 );
