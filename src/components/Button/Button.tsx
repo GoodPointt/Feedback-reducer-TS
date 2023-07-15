@@ -1,7 +1,7 @@
 import * as React from 'react';
 import css from './Button.module.css';
 
-interface ButtonProps {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   buttonType?: 'button' | 'submit' | 'reset';
   children: string;
   onClick: () => void;
