@@ -7,7 +7,11 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   onClick: () => void;
 }
 
-export const Button = ({ buttonType, children, onClick }: ButtonProps) => {
+export const Button: React.FC<React.PropsWithChildren<ButtonProps>> = ({
+  buttonType,
+  children,
+  onClick,
+}) => {
   return (
     <button type={buttonType} className={css.button} onClick={onClick}>
       {children}
